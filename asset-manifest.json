@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Metatrix88/foxtok/static/css/main.204f33d3.css",
+    "main.js": "/Metatrix88/foxtok/static/js/main.5b05ff29.js",
+    "static/js/787.d8e8a90f.chunk.js": "/Metatrix88/foxtok/static/js/787.d8e8a90f.chunk.js",
+    "static/media/loading.gif": "/Metatrix88/foxtok/static/media/loading.6f147a284d29a127c0f6.gif",
+    "index.html": "/Metatrix88/foxtok/index.html",
+    "main.204f33d3.css.map": "/Metatrix88/foxtok/static/css/main.204f33d3.css.map",
+    "main.5b05ff29.js.map": "/Metatrix88/foxtok/static/js/main.5b05ff29.js.map",
+    "787.d8e8a90f.chunk.js.map": "/Metatrix88/foxtok/static/js/787.d8e8a90f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.204f33d3.css",
+    "static/js/main.5b05ff29.js"
+  ]
+}
