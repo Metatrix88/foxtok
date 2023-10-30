@@ -1,0 +1,44 @@
+.side-bar {
+  color: #999;
+  display: grid;
+  grid-column: 1/4;
+  height: calc(100vh - var(--header-height));
+  padding: 24px 0 32px;
+  position: sticky;
+  top: var(--header-height)
+}
+
+.side-bar__text {
+  font-size: 14px;
+  margin-bottom: 16px
+}
+
+.side-bar__btn {
+  width: 100%
+}
+
+.menu {
+  margin-left: -12px
+}
+
+.menu__btn {
+  height: 40px;
+  padding: 0 8px
+}
+
+.menu__btn:hover {
+  background-color: #fafafa
+}
+
+.menu__icon {
+  font-size: 24px
+}
+
+.side-bar__btn.btn.outlined.primary {
+  border: 1px solid #FE2C55;
+  background-color: #FFFFFF;
+  color: #FE2C55;
+}
+.side-bar__btn.btn.outlined.primary:hover {
+  background-color: #fff4f5;
+}

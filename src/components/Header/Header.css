@@ -1,0 +1,23 @@
+.header {
+  align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #f1f1f2;
+  display: flex;
+  height: var(--header-height);
+  position: sticky;
+  top: 0;
+  z-index: 1
+}
+
+.header__container {
+  align-items: center;
+  display: grid;
+  gap: 16px;
+  grid-template-columns:repeat(3, 1fr)
+}
+
+.header__buttons {
+  display: flex;
+  gap: 16px;
+  justify-self: end
+}

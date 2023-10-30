@@ -1,0 +1,85 @@
+.post {
+  display: grid;
+  gap: 16px;
+  grid-template-columns:repeat(8, 1fr)
+}
+
+.post__avatar {
+  border: 1px solid #f1f1f2;
+  border-radius: 50%;
+  grid-column: 1
+}
+
+.post__content {
+  grid-column: 2/6;
+  padding-top: 16px
+}
+
+.post__author {
+  color: #1c1c1c;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-decoration: none
+}
+
+.post__author:hover {
+  text-decoration: underline
+}
+
+.post__actions {
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  grid-column: 6
+}
+
+.player {
+  border-radius: 8px;
+  display: flex;
+  overflow: hidden;
+  position: relative
+}
+
+.player__video {
+  height: auto;
+  width: 100%
+}
+
+.player__btn.btn {
+  background-color: transparent;
+  border-radius: 0;
+  bottom: 0;
+  color: hsla(0, 0%, 100%, .9);
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 0
+}
+
+.player:hover .player__btn.btn.active {
+  display: flex
+}
+
+.player__btn:before {
+  background-color: rgba(28, 28, 28, .5);
+  border-radius: 50%;
+  content: "";
+  height: 50px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px
+}
+
+.player__btn.btn svg {
+  position: relative;
+  z-index: 1
+}

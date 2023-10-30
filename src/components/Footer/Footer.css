@@ -1,0 +1,20 @@
+.footer {
+  align-self: end;
+  font-size: 12px
+}
+
+.footer__menu {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px
+}
+
+.footer__link {
+  color: inherit;
+  font-size: 12px;
+  text-decoration: none
+}
+
+.footer__link:hover {
+  text-decoration: underline
+}
