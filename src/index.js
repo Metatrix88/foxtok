@@ -1,15 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import { App } from './components/App';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routers';
+
 import reportWebVitals from './reportWebVitals';
+import { Loader } from './components/Loader';
+
+import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <RouterProvider
+    router={router}
+    fallbackElement={<Loader/>}
+  />
 );
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(
+//   <RouterProvider
+//     router={router}
+//     fallbackElement={<Loader/>}
+//   />
+// );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

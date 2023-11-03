@@ -1,4 +1,4 @@
-import {postsURL} from '../services/constants';
+import {postsURL} from '../constants/apiUrls';
 import {getPosts} from '../services/posts';
 
 const cache = new Map();

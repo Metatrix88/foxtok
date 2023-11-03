@@ -15,6 +15,10 @@
   text-decoration: none
 }
 
+.footer__link--active {
+  color: #FE2C55;
+}
+
 .footer__link:hover {
   text-decoration: underline
 }

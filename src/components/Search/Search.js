@@ -1,29 +1,54 @@
-import React, {useDeferredValue, useRef, useState} from 'react';
+import React, {useDeferredValue, useEffect, useRef, useState} from 'react';
+import {Form, useSearchParams} from 'react-router-dom';
+
+import {SearchResult} from '../SearchResult';
+import {useClickOutside} from '../../hooks/useClickOutside';
 
 import { Search as SearchIcon } from '../../icons';
 
 import './Search.css';
-import {SearchResult} from '../SearchResult';
-import {useClickOutside} from '../../hooks/useClickOutside';
+import {PATH} from '../../constants/paths';
 
 export const Search = () => {
-  const [query, setQuery] = useState(null);
+  const [query, setQuery] = useState('');
+  const [isFocus, setIsFocus] = useState(false);
   const deferredQuery = useDeferredValue(query)
-  const ref = useClickOutside(() => setQuery(null))
+  let [searchParams] = useSearchParams();
+  const ref = useClickOutside(() => setQuery(''))
 
-  const handleSearch = (event) => {
+  useEffect(() => {
+    const q = searchParams.get('q');
+
+    if (q) {
+      setQuery(q);
+    }
+  }, [searchParams])
+
+  const handleChange = (event) => {
     setQuery(event.target.value)
   }
 
+  const handleFocus = (event) => {
+    setIsFocus(true);
+    setQuery(event.target.value)
+  };
+
+  const handleBlur = () => {
+    setIsFocus(false);
+  };
+
   return (
-    <form ref={ref} className="search">
+    <Form ref={ref} className="search" method="get" action={PATH.search}>
       <div className="search__wrap">
         <input
+          name='q'
           className="search__input"
           type="text"
           placeholder="Search accounts and videos"
-          onChange={handleSearch}
-          onFocus={handleSearch}
+          onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          value={query}
         />
         <span className="search__border"></span>
         <span className="search__splitter"></span>
@@ -31,7 +56,7 @@ export const Search = () => {
           <SearchIcon className='search__icon'></SearchIcon>
         </button>
       </div>
-      <SearchResult query={deferredQuery}/>
-    </form>
+      <SearchResult query={deferredQuery} open={isFocus}/>
+    </Form>
   );
 };

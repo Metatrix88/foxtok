@@ -1,4 +1,5 @@
 import React, {useRef} from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
 
 import { menu } from './config';
 
@@ -12,19 +13,21 @@ import './SideBar.css';
 
 export const SideBar = () => {
   const logInRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <aside className="side-bar">
       <div>
         <nav className="menu">
-          {menu.map(({id, title, Icon, upper, color, href}) => (
+          {menu.map(({id, title, Icon, upper, href}) => (
             <Button
               key={id}
-              href={href}
               className="menu__btn"
               variant="text"
-              color={color}
+              color={location.pathname === href ? 'primary' : ''}
               upper={upper}
+              onClick={() => navigate(href)}
             >
               <Icon className="menu__icon"></Icon>
               {title}
