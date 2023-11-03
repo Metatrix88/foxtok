@@ -1,37 +1,26 @@
 import React, {useEffect, useState} from 'react';
-import {getPosts} from '../../services/posts';
+import { getPostsByAuthor } from '../../services/posts';
 
 import './SearchResult.css';
 
-const reg = /[^a-z0-9]/;
-
-const toSearchableString = (str) => str.toLowerCase().replace(reg, '');
-
-export const SearchResult = ({ query }) => {
+export const SearchResult = ({ query, open }) => {
   const [state, setState] = useState(null);
 
   useEffect(() => {
-    if(!query) {
+    if(!query || !open) {
       setState(null);
       return;
     }
 
-    getPosts()
+    getPostsByAuthor(query)
       .then((posts) => {
-        const value = toSearchableString(query);
-        const results = posts.filter(({ author }) => toSearchableString(author).includes(value));
-
-        if (!results.length) {
-          throw new Error('No data');
-        }
-
-        setState(results);
+        setState(posts);
       })
       .catch((error) => {
         setState(null);
         console.log(error.message)
       });
-  }, [query]);
+  }, [query, open]);
 
   if(!state) {
     return null;

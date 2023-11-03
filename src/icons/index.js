@@ -1,6 +1,7 @@
 export * from './Camera';
 export * from './Close';
 export * from './Comment';
+export * from './Error';
 export * from './Home';
 export * from './Like';
 export * from './Logo';
