@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/foxtok/static/css/main.204f33d3.css",
-    "main.js": "/foxtok/static/js/main.f440cc86.js",
-    "static/js/787.d8e8a90f.chunk.js": "/foxtok/static/js/787.d8e8a90f.chunk.js",
+    "main.css": "/foxtok/static/css/main.c38e426b.css",
+    "main.js": "/foxtok/static/js/main.4fe0c197.js",
+    "static/js/787.7efd31bd.chunk.js": "/foxtok/static/js/787.7efd31bd.chunk.js",
     "static/media/loading.gif": "/foxtok/static/media/loading.6f147a284d29a127c0f6.gif",
     "index.html": "/foxtok/index.html",
-    "main.204f33d3.css.map": "/foxtok/static/css/main.204f33d3.css.map",
-    "main.f440cc86.js.map": "/foxtok/static/js/main.f440cc86.js.map",
-    "787.d8e8a90f.chunk.js.map": "/foxtok/static/js/787.d8e8a90f.chunk.js.map"
+    "main.c38e426b.css.map": "/foxtok/static/css/main.c38e426b.css.map",
+    "main.4fe0c197.js.map": "/foxtok/static/js/main.4fe0c197.js.map",
+    "787.7efd31bd.chunk.js.map": "/foxtok/static/js/787.7efd31bd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.204f33d3.css",
-    "static/js/main.f440cc86.js"
+    "static/css/main.c38e426b.css",
+    "static/js/main.4fe0c197.js"
   ]
 }
