@@ -1,5 +1,10 @@
-import React, {Suspense} from 'react';
-import { Outlet } from 'react-router-dom';
+import React, {Suspense, useEffect} from 'react';
+import {Outlet, useNavigate} from 'react-router-dom';
+import {useSelector} from 'react-redux';
+
+// constants
+import {authStatuses} from '../../constants/authStatuses';
+import {PATH} from '../../constants/paths';
 
 // components
 import { Header } from '../Header';
@@ -11,6 +16,14 @@ import { Loader } from '../Loader';
 import './App.css';
 
 export const App = () => {
+  const authStatus = useSelector((state) => state.auth.status !== authStatuses.loggedIn)
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if(authStatus) {
+      navigate(PATH.login);
+    }
+  },[authStatus]);
 
   return (
     <>
