@@ -1,9 +1,10 @@
 import React from 'react';
 import {Provider} from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react'
 import {Outlet, ScrollRestoration} from 'react-router-dom';
 
+import {persistor, store} from '../../store';
 import {Sprite} from '../Sprite';
-import {store} from '../../store';
 
 export const SystemLayout = () => {
   return (
@@ -11,7 +12,9 @@ export const SystemLayout = () => {
       <ScrollRestoration />
       <Sprite />
       <Provider store={ store }>
-        <Outlet />
+        <PersistGate loading={null} persistor={persistor}>
+          <Outlet />
+        </PersistGate>
       </Provider>
     </>
   )

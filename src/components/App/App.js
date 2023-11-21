@@ -3,7 +3,6 @@ import {Outlet, useNavigate} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 
 // constants
-import {authStatuses} from '../../constants/authStatuses';
 import {PATH} from '../../constants/paths';
 
 // components
@@ -16,14 +15,14 @@ import { Loader } from '../Loader';
 import './App.css';
 
 export const App = () => {
-  const authStatus = useSelector((state) => state.auth.status !== authStatuses.loggedIn)
+  const loggedOut = useSelector((state) => !state.auth.accessToken)
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(authStatus) {
+    if(loggedOut) {
       navigate(PATH.login);
     }
-  },[authStatus]);
+  },[loggedOut]);
 
   return (
     <>

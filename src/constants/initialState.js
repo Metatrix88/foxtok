@@ -1,8 +1,8 @@
-import { authStatuses } from './authStatuses';
 
 export const INITIAL_STATE = {
   auth: {
-    status: authStatuses.loggedOut,
+    accessToken: null,
+    refreshToken: null,
   },
   user: {
     id: null,

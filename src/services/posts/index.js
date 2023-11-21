@@ -1,6 +1,8 @@
 import axios from 'axios';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 
 import { postsURL } from '../../constants/apiUrls';
+import {createCustomBaseQuery} from '../customBaseQuery';
 
 export const  getPosts = async () => {
   const { data: posts } = await axios.get(postsURL);
@@ -21,4 +23,19 @@ export const getPostsByAuthor = async (query) => {
   }
 
   return results;
-}
+};
+
+export const posts = createApi({
+  reducerPath: 'postsApi',
+  baseQuery: createCustomBaseQuery(postsURL),
+  endpoints: (builder) => ({
+    getPosts: builder.query({
+      query: () => ({
+        url: '/',
+        method: 'GET',
+      }),
+    }),
+  }),
+});
+
+export const { useGetPostsQuery } = posts;
