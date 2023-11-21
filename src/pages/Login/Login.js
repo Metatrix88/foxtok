@@ -1,25 +1,31 @@
-import React, { useId } from 'react';
-import { useDispatch } from 'react-redux';
+import React, {useEffect, useId} from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import {useLoginMutation} from '../../services/auth';
 
 // constants
 import { PATH } from '../../constants/paths';
-import { authStatuses } from '../../constants/authStatuses';
 
 // components
 import { Button } from '../../components/Button';
 import { Logo } from '../../icons';
 
-import { setAuthStatus } from '../../store/actions';
-
 // styles
 import './Login.css';
+import {useSelector} from 'react-redux';
 
 export const Login = () => {
   const emailId = useId();
   const passwordId = useId();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const loggedIn = useSelector((state) => Boolean(state.auth.accessToken))
+  const [login] = useLoginMutation();
+
+  useEffect(() => {
+    if (loggedIn) {
+      navigate(PATH.index)
+    }
+  }, [loggedIn]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -28,10 +34,9 @@ export const Login = () => {
     const password = formData.get('password')
 
     if(email && password) {
-      dispatch(setAuthStatus(authStatuses.loggedIn))
-      navigate(PATH.index)
+      login({ email, password });
     }
-  }
+  };
 
   return(
     <div className="login">

@@ -1,12 +1,8 @@
+import { createReducer } from '@reduxjs/toolkit';
+
 import { INITIAL_STATE } from '../../constants/initialState';
-import { USER } from '../../constants/actionTypes';
+import { setUser } from '../actions';
 
-export const userReducer = (state = INITIAL_STATE.user, action) => {
-
-  switch (action.type) {
-    case USER.set:
-      return { ...action.payload}
-    default:
-      return state;
-  }
-};
+export const userReducer = createReducer(INITIAL_STATE.user, {
+  [setUser]: (state, action) => action.payload,
+});

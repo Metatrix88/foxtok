@@ -1,12 +1,8 @@
+import { createReducer } from '@reduxjs/toolkit';
+
 import { INITIAL_STATE } from '../../constants/initialState';
-import { AUTH } from '../../constants/actionTypes';
+import { setAuthStatus } from '../actions';
 
-export const authReducer = (state = INITIAL_STATE.auth, action) => {
-
-  switch (action.type) {
-    case AUTH.setStatus:
-      return { ...state, status: action.payload};
-    default:
-      return state;
-  }
-};
+export const authReducer = createReducer(INITIAL_STATE.auth, {
+  [setAuthStatus]: (state, action) => ({ ...state, status: action.payload}),
+});

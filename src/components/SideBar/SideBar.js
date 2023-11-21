@@ -10,11 +10,13 @@ import {LogInModal} from '../LogInModal';
 
 // styles
 import './SideBar.css';
+import {useSelector} from 'react-redux';
 
 export const SideBar = () => {
   const logInRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const loggedIn = useSelector((state) => Boolean(state.auth.accessToken))
 
   return (
     <aside className="side-bar">
@@ -35,17 +37,21 @@ export const SideBar = () => {
           ))}
         </nav>
         <hr/>
-        <p className="side-bar__text">
-          Log in to follow creators, like videos and view comments
-        </p>
-        <Button
-          className="side-bar__btn"
-          variant="outlined"
-          color="primary"
-          onClick={() => logInRef.current.open()}
-        >
-          Log in
-        </Button>
+        {!loggedIn && (
+          <>
+            <p className="side-bar__text">
+              Log in to follow creators, like videos and view comments
+            </p>
+            <Button
+              className="side-bar__btn"
+              variant="outlined"
+              color="primary"
+              onClick={() => logInRef.current.open()}
+            >
+              Log in
+            </Button>
+          </>
+        )}
         <LogInModal ref={logInRef} />
         <hr/>
       </div>

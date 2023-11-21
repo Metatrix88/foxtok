@@ -1,10 +1,3 @@
-import { USER } from '../../constants/actionTypes';
+import { createAction } from '@reduxjs/toolkit'
 
-export const setUser = (payload) => ({
-  type: USER.set,
-  payload,
-});
-
-// export const setUser = {
-//   type: USER.set,
-// };
+export const setUser = createAction('user/set');
